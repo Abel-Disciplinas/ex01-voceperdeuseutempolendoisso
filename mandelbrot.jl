@@ -6,8 +6,14 @@ using Images
 # z^2 = x^2 + 2xyi - y^2 = (x^2 - y^2) + (2xy) i
 function iteracao_mandelbrot(cx, cy; max_iter = 40)
   iter = 0
-
-  # AQUI
+  x = y = 0
+  while iter<40 && x^2+y^2<4
+    real = x^2 - y^2 + cx
+    imaginaria = 2x*y + cy
+    x = real
+    y = imaginaria
+    iter += 1
+  end
 
   if x^2 + y^2 < 4
     return false, 0
